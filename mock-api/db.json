@@ -1,0 +1,234 @@
+{
+  "users": [
+    {
+      "id": "admin-001",
+      "discord_id": null,
+      "username": "admin",
+      "avatar": null,
+      "email": "admin@cic.local",
+      "role": "Administrator",
+      "xp": 9999,
+      "level": 99,
+      "created_at": "2025-01-01T00:00:00Z"
+    },
+    {
+      "id": "user-001",
+      "discord_id": null,
+      "username": "demo_user",
+      "avatar": null,
+      "email": "demo@cic.local",
+      "role": "Member",
+      "xp": 450,
+      "level": 3,
+      "created_at": "2025-09-01T10:00:00Z"
+    },
+    {
+      "id": "user-002",
+      "discord_id": null,
+      "username": "yacine_re",
+      "avatar": null,
+      "email": "yacine@cic.local",
+      "role": "Mentor",
+      "xp": 2840,
+      "level": 12,
+      "created_at": "2025-08-15T08:00:00Z"
+    },
+    {
+      "id": "user-003",
+      "discord_id": null,
+      "username": "sara_sec",
+      "avatar": null,
+      "email": "sara@cic.local",
+      "role": "Event Organizer",
+      "xp": 1210,
+      "level": 7,
+      "created_at": "2025-09-20T14:30:00Z"
+    },
+    {
+      "id": "user-004",
+      "discord_id": null,
+      "username": "ahmed_ctf",
+      "avatar": null,
+      "email": "ahmed@cic.local",
+      "role": "Member",
+      "xp": 780,
+      "level": 5,
+      "created_at": "2025-10-05T11:00:00Z"
+    }
+  ],
+  "events": [
+    {
+      "id": "evt-001",
+      "title": "Intro to CTF",
+      "description": "A beginner-friendly introduction to Capture The Flag competitions. Learn the basics of web exploitation, cryptography, and reverse engineering.",
+      "banner_url": null,
+      "location": "Lab A-204",
+      "date": "2026-06-10T18:00:00Z",
+      "type": "CTF",
+      "difficulty": "Beginner",
+      "capacity": 30,
+      "registered_count": 0,
+      "is_registered": false,
+      "organizer_id": "user-003"
+    },
+    {
+      "id": "evt-002",
+      "title": "Web Security Workshop",
+      "description": "Deep dive into OWASP Top 10 vulnerabilities with live demonstrations and hands-on labs using DVWA.",
+      "banner_url": null,
+      "location": "Online — Discord Stage",
+      "date": "2026-06-18T17:00:00Z",
+      "type": "Workshop",
+      "difficulty": "Intermediate",
+      "capacity": 50,
+      "registered_count": 27,
+      "is_registered": false,
+      "organizer_id": "user-003"
+    },
+    {
+      "id": "evt-003",
+      "title": "Binary Exploitation Bootcamp",
+      "description": "Three-day intensive on buffer overflows, ROP chains, and format string attacks. Bring your laptop.",
+      "banner_url": null,
+      "location": "Lab B-101",
+      "date": "2026-07-05T09:00:00Z",
+      "type": "Bootcamp",
+      "difficulty": "Advanced",
+      "capacity": 15,
+      "registered_count": 9,
+      "is_registered": false,
+      "organizer_id": "user-002"
+    },
+    {
+      "id": "evt-004",
+      "title": "OSINT Fundamentals",
+      "description": "Learn open-source intelligence gathering techniques used in red team operations and bug bounty hunting.",
+      "banner_url": null,
+      "location": "Room C-115",
+      "date": "2026-07-20T16:00:00Z",
+      "type": "Workshop",
+      "difficulty": "Beginner",
+      "capacity": 40,
+      "registered_count": 5,
+      "is_registered": false,
+      "organizer_id": "user-003"
+    }
+  ],
+  "resources": [
+    {
+      "id": "res-001",
+      "title": "Linux Command Line Cheatsheet",
+      "category": "Linux",
+      "type": "PDF",
+      "difficulty": "Beginner",
+      "file_url": "https://example.com/resources/linux-cheatsheet.pdf",
+      "description": "Essential Linux commands for security professionals.",
+      "tags": [
+        "linux",
+        "terminal",
+        "commands"
+      ],
+      "uploaded_by": "user-002",
+      "created_at": "2025-10-01T12:00:00Z"
+    },
+    {
+      "id": "res-002",
+      "title": "Intro to Cryptography",
+      "category": "Cryptography",
+      "type": "Slides",
+      "difficulty": "Beginner",
+      "file_url": "https://example.com/resources/crypto-intro.pdf",
+      "description": "Covers symmetric, asymmetric encryption and hashing basics.",
+      "tags": [
+        "crypto",
+        "aes",
+        "rsa",
+        "hashing"
+      ],
+      "uploaded_by": "user-001",
+      "created_at": "2025-10-15T09:30:00Z"
+    },
+    {
+      "id": "res-003",
+      "title": "Web App Pentesting Guide",
+      "category": "Web Security",
+      "type": "Documentation",
+      "difficulty": "Intermediate",
+      "file_url": "https://example.com/resources/webapp-pentest.pdf",
+      "description": "Step-by-step methodology for web application penetration testing.",
+      "tags": [
+        "web",
+        "pentest",
+        "burp",
+        "owasp"
+      ],
+      "uploaded_by": "user-002",
+      "created_at": "2025-11-02T14:00:00Z"
+    },
+    {
+      "id": "res-004",
+      "title": "Reverse Engineering with Ghidra",
+      "category": "Reverse Engineering",
+      "type": "Video",
+      "difficulty": "Advanced",
+      "file_url": "https://example.com/resources/ghidra-intro.mp4",
+      "description": "Walkthrough of Ghidra's decompiler and scripting interface.",
+      "tags": [
+        "ghidra",
+        "reversing",
+        "binary"
+      ],
+      "uploaded_by": "user-002",
+      "created_at": "2025-12-01T11:00:00Z"
+    },
+    {
+      "id": "res-005",
+      "title": "Network Traffic Analysis",
+      "category": "Networking",
+      "type": "Lab",
+      "difficulty": "Intermediate",
+      "file_url": "https://example.com/resources/wireshark-lab.zip",
+      "description": "Hands-on lab using Wireshark to capture and analyze packets, detect anomalies, and investigate intrusions.",
+      "tags": [
+        "wireshark",
+        "pcap",
+        "networking"
+      ],
+      "uploaded_by": "user-002",
+      "created_at": "2026-01-10T09:00:00Z"
+    }
+  ],
+  "announcements": [
+    {
+      "id": "ann-001",
+      "title": "Summer CTF Season Kicks Off!",
+      "body": "We're entering three competitions this summer. Registration links are pinned in Discord. All skill levels welcome — come learn!",
+      "type": "General",
+      "priority": "HIGH",
+      "is_pinned": true,
+      "created_at": "2026-05-15T08:00:00Z",
+      "author_id": "admin-001"
+    },
+    {
+      "id": "ann-002",
+      "title": "New Resource Upload: Ghidra Workshop Recording",
+      "body": "Last week's reverse engineering session is now available in the Resource Hub. Check it out and try the practice binary attached.",
+      "type": "Resource",
+      "priority": "MEDIUM",
+      "is_pinned": false,
+      "created_at": "2026-05-12T15:30:00Z",
+      "author_id": "user-002"
+    },
+    {
+      "id": "ann-003",
+      "title": "Monthly Meeting — June 3rd",
+      "body": "Our monthly all-hands meeting is scheduled for June 3rd at 6 PM in Room A-101. Agenda: CTF debrief, upcoming events, mentorship program updates.",
+      "type": "Meeting",
+      "priority": "MEDIUM",
+      "is_pinned": false,
+      "created_at": "2026-05-10T10:00:00Z",
+      "author_id": "admin-001"
+    }
+  ],
+  "registrations": []
+}

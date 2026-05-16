@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\data\\\\local\\\\dao\")",
+      "Bash(Out-Null)",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\data\\\\local\\\\entity\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\data\\\\remote\\\\dto\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\data\\\\repository\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\auth\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\home\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\events\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\resources\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\profile\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\announcements\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\util\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\layout\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\values\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\menu\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\drawable\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\navigation\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\test\\\\java\\\\com\\\\cic\\\\mobapp\")",
+      "Bash(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\gradle\\\\wrapper\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\xml\")",
+      "PowerShell(Get-ChildItem -Recurse \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\" | Where-Object { -not $_.PSIsContainer } | Select-Object -ExpandProperty FullName | Sort-Object)",
+      "Bash(dir /s /b)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\res\\\\color\")",
+      "PowerShell(gradle --version 2>&1)",
+      "PowerShell($env:GRADLE_HOME)",
+      "PowerShell(Get-ChildItem \"$env:USERPROFILE\\\\.gradle\\\\wrapper\\\\dists\" | Select-Object Name)",
+      "PowerShell(Get-ChildItem \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\build\\\\outputs\\\\apk\\\\debug\" | Select-Object Name, @{N=\"Size\";E={\"$\\([math]::Round\\($_.Length/1MB,1\\)\\) MB\"}})",
+      "PowerShell(cmd /c \"dir `\"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\build\\\\outputs\\\\apk\\\\debug`\"\")",
+      "PowerShell(Start-Process \"C:\\\\Program Files\\\\BlueStacks_nxt\\\\HD-Player.exe\")",
+      "PowerShell(node --version 2>&1)",
+      "PowerShell(npm --version 2>&1)",
+      "PowerShell(npm install -g json-server 2>&1)",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\mock-api\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\admin\")",
+      "PowerShell(Invoke-Item \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\build\\\\outputs\\\\apk\\\\debug\\\\app-debug.apk\")",
+      "PowerShell(New-Item -ItemType Directory -Force -Path \"c:\\\\Users\\\\ram com\\\\Downloads\\\\CICMobApp\\\\app\\\\src\\\\main\\\\java\\\\com\\\\cic\\\\mobapp\\\\ui\\\\component\")"
+    ]
+  }
+}

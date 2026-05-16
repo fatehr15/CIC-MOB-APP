@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.cic.mobapp.ui.home.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/eventsFragment"
+        android:name="com.cic.mobapp.ui.events.EventsFragment"
+        android:label="Events" />
+
+    <fragment
+        android:id="@+id/resourcesFragment"
+        android:name="com.cic.mobapp.ui.resources.ResourcesFragment"
+        android:label="Resources" />
+
+    <fragment
+        android:id="@+id/announcementsFragment"
+        android:name="com.cic.mobapp.ui.announcements.AnnouncementsFragment"
+        android:label="Announcements" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.cic.mobapp.ui.profile.ProfileFragment"
+        android:label="Profile" />
+
+</navigation>

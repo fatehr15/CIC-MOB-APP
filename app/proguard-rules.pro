@@ -1,0 +1,6 @@
+-keep class com.cic.mobapp.data.remote.dto.** { *; }
+-keep class com.cic.mobapp.data.local.entity.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn okhttp3.**
+-dontwarn retrofit2.**

@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Avatar -->
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginBottom="12dp"
+            android:background="@drawable/bg_avatar_circle" />
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/tvUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_primary"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+        <!-- Role -->
+        <TextView
+            android:id="@+id/tvRole"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/accent_cyan"
+            android:textSize="13sp"
+            android:letterSpacing="0.05"
+            android:layout_marginTop="4dp" />
+
+        <!-- Joined date -->
+        <TextView
+            android:id="@+id/tvJoined"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_disabled"
+            android:textSize="11sp"
+            android:fontFamily="monospace"
+            android:layout_marginTop="3dp" />
+
+        <!-- XP progress section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:cardBackgroundColor="@color/bg_card"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="0dp"
+            app:strokeColor="@color/divider"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/tvLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/accent_purple"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:fontFamily="monospace" />
+
+                    <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
+
+                    <TextView
+                        android:id="@+id/tvXpLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="12sp"
+                        android:fontFamily="monospace" />
+
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressXp"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:max="1000"
+                    android:progressTint="@color/accent_cyan"
+                    android:progressBackgroundTint="@color/bg_elevated" />
+
+                <TextView
+                    android:id="@+id/tvXpNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_disabled"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp"
+                    android:layout_gravity="end" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Stats row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp" android:gravity="center">
+                    <TextView android:id="@+id/tvTotalXp"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textColor="@color/accent_cyan" android:textSize="20sp"
+                        android:textStyle="bold" android:fontFamily="monospace" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Total XP" android:textColor="@color/text_secondary"
+                        android:textSize="11sp" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                app:cardBackgroundColor="@color/bg_card"
+                app:cardCornerRadius="14dp"
+                app:cardElevation="0dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="vertical" android:padding="14dp" android:gravity="center">
+                    <TextView android:id="@+id/tvLevelBig"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:textColor="@color/accent_purple" android:textSize="20sp"
+                        android:textStyle="bold" android:fontFamily="monospace" />
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Level" android:textColor="@color/text_secondary"
+                        android:textSize="11sp" android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Settings button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSettings"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Settings"
+            android:textColor="@color/text_secondary"
+            android:layout_marginTop="24dp"
+            app:strokeColor="@color/divider"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_preferences"
+            app:iconTint="@color/text_secondary" />
+
+        <!-- Admin Panel button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnAdminPanel"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Admin Panel"
+            android:textColor="@color/bg_primary"
+            android:layout_marginTop="24dp"
+            android:visibility="gone"
+            app:backgroundTint="@color/status_error"
+            app:cornerRadius="12dp"
+            app:icon="@android:drawable/ic_menu_manage"
+            app:iconTint="@color/bg_primary" />
+
+        <!-- Logout button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLogout"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:text="Sign Out"
+            android:textColor="@color/status_error"
+            android:layout_marginTop="12dp"
+            app:strokeColor="@color/status_error"
+            app:cornerRadius="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>

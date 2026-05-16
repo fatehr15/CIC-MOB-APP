@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Offline banner -->
+    <TextView
+        android:id="@+id/offlineBanner"
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:background="@color/status_error"
+        android:gravity="center"
+        android:text="No internet connection"
+        android:textColor="@color/text_primary"
+        android:textSize="12sp"
+        android:visibility="gone"
+        android:drawableStart="@drawable/ic_offline"
+        android:drawablePadding="6dp"
+        android:paddingStart="16dp" />
+
+    <!-- Search bar -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_card"
+        android:layout_margin="12dp" />
+
+    <!-- Sort / filter chips -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:layout_marginBottom="4dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipBeginner"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Beginner"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipIntermediate"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intermediate"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAdvanced"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Advanced"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPDF"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PDF"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVideo"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Video"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_card"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp"
+                app:checkedIconVisible="false" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <!-- Content area -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- RecyclerView (content) -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvResources"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="12dp"
+            android:clipToPadding="false"
+            android:visibility="gone"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- Skeleton -->
+        <ScrollView
+            android:id="@+id/skeletonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+                <include layout="@layout/item_skeleton_row" />
+                <include layout="@layout/item_skeleton_row" />
+                <include layout="@layout/item_skeleton_row" />
+                <include layout="@layout/item_skeleton_row" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Empty state -->
+        <LinearLayout
+            android:id="@+id/emptyContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp"
+            android:visibility="gone">
+            <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                android:src="@drawable/ic_empty_state" android:alpha="0.6" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="No resources found" android:textColor="@color/text_primary"
+                android:textSize="18sp" android:textStyle="bold" android:layout_marginTop="16dp" />
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Try a different search or check back later"
+                android:textColor="@color/text_secondary" android:textSize="13sp"
+                android:gravity="center" android:layout_marginTop="6dp" />
+        </LinearLayout>
+
+        <!-- Error state -->
+        <LinearLayout
+            android:id="@+id/errorContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="32dp"
+            android:visibility="gone">
+            <ImageView android:layout_width="80dp" android:layout_height="80dp"
+                android:src="@drawable/ic_error_state" android:alpha="0.7" />
+            <TextView android:id="@+id/tvErrorMsg"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Could not load resources" android:textColor="@color/text_primary"
+                android:textSize="17sp" android:textStyle="bold"
+                android:gravity="center" android:layout_marginTop="16dp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnRetry"
+                android:layout_width="wrap_content" android:layout_height="44dp"
+                android:text="Retry" android:textColor="@color/bg_primary"
+                android:layout_marginTop="20dp"
+                app:backgroundTint="@color/accent_cyan" app:cornerRadius="10dp" />
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

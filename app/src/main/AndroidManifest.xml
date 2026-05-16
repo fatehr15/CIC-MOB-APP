@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".CICApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CICMobApp"
+        android:networkSecurityConfig="@xml/network_security_config">
+
+        <!-- Splash / boot sequence — LAUNCHER -->
+        <activity
+            android:name=".ui.auth.SplashActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CICMobApp.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Login screen -->
+        <activity
+            android:name=".ui.auth.LoginActivity"
+            android:exported="true"
+            android:theme="@style/Theme.CICMobApp.NoActionBar">
+            <!-- Discord OAuth2 redirect -->
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="cic" android:host="auth" android:path="/callback" />
+            </intent-filter>
+        </activity>
+
+        <!-- Main shell with bottom nav -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false"
+            android:theme="@style/Theme.CICMobApp.NoActionBar" />
+
+        <!-- Event detail screen -->
+        <activity
+            android:name=".ui.events.EventDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
+        <!-- Settings -->
+        <activity
+            android:name=".ui.profile.SettingsActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CICMobApp.NoActionBar" />
+
+        <!-- Resource detail -->
+        <activity
+            android:name=".ui.resources.ResourceDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CICMobApp.NoActionBar" />
+
+        <!-- Announcement detail -->
+        <activity
+            android:name=".ui.announcements.AnnouncementDetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CICMobApp.NoActionBar" />
+
+        <!-- Admin panel — Administrator role only -->
+        <activity
+            android:name=".ui.admin.AdminActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/Theme.CICMobApp.NoActionBar" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CIC</string>
+
+    <!-- Nav labels -->
+    <string name="nav_home">Home</string>
+    <string name="nav_events">Events</string>
+    <string name="nav_resources">Resources</string>
+    <string name="nav_community">Community</string>
+    <string name="nav_profile">Profile</string>
+
+    <!-- Auth -->
+    <string name="login_title">Cyber Innovators Club</string>
+    <string name="login_subtitle">Join or sign in to your account</string>
+    <string name="tab_sign_in">Sign In</string>
+    <string name="tab_register">Register</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_confirm_password">Confirm password</string>
+    <string name="btn_sign_in">Sign In</string>
+    <string name="btn_create_account">Create Account</string>
+    <string name="btn_login_discord">Continue with Discord</string>
+    <string name="label_or">OR</string>
+
+    <!-- Events -->
+    <string name="btn_register">Register</string>
+    <string name="btn_unregister">Unregister</string>
+    <string name="label_seats_left">seats left</string>
+    <string name="label_difficulty">Difficulty</string>
+
+    <!-- Profile -->
+    <string name="label_xp">XP</string>
+    <string name="label_level">Level</string>
+
+    <!-- Common -->
+    <string name="loading">Loading…</string>
+    <string name="error_network">Network error. Check your connection.</string>
+    <string name="retry">Retry</string>
+
+    <!-- Accessibility -->
+    <string name="cd_avatar">User avatar</string>
+    <string name="cd_event_banner">Event banner image</string>
+    <string name="cd_resource_icon">Resource type icon</string>
+    <string name="cd_back">Navigate back</string>
+    <string name="cd_share">Share</string>
+    <string name="cd_open_resource">Open resource</string>
+
+    <!-- Empty states -->
+    <string name="empty_events">No events yet</string>
+    <string name="empty_resources">No resources found</string>
+    <string name="empty_announcements">No announcements yet</string>
+
+    <!-- Error states -->
+    <string name="error_generic">Something went wrong</string>
+    <string name="offline_message">No internet connection</string>
+</resources>

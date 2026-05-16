@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Backgrounds — from blueprint design tokens -->
+    <color name="bg_primary">#0A0C10</color>
+    <color name="bg_surface">#12161C</color>
+    <color name="bg_card">#12161C</color>
+    <color name="bg_elevated">#1A1F27</color>
+
+    <!-- Accents -->
+    <color name="accent_cyan">#00D1FF</color>
+    <color name="accent_blue">#3D8EFF</color>
+    <color name="accent_purple">#8B5CF6</color>
+    <color name="matrix_green">#22C55E</color>
+
+    <!-- Status -->
+    <color name="status_success">#22C55E</color>
+    <color name="status_warning">#F59E0B</color>
+    <color name="status_error">#EF4444</color>
+
+    <!-- Text -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8B9AB0</color>
+    <color name="text_disabled">#3D4A5C</color>
+
+    <!-- Dividers -->
+    <color name="divider">#1E2530</color>
+
+    <!-- Gradient start/end (used in code via GradientDrawable) -->
+    <color name="gradient_start">#00D1FF</color>
+    <color name="gradient_end">#8B5CF6</color>
+</resources>

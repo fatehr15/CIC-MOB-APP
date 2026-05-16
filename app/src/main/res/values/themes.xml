@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.CICMobApp" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/accent_cyan</item>
+        <item name="colorPrimaryVariant">@color/accent_blue</item>
+        <item name="colorOnPrimary">@color/bg_primary</item>
+        <item name="colorSecondary">@color/accent_purple</item>
+        <item name="colorSecondaryVariant">@color/accent_purple</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        <item name="colorSurface">@color/bg_surface</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorError">@color/status_error</item>
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:statusBarColor">@color/bg_primary</item>
+        <item name="android:navigationBarColor">@color/bg_surface</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <!-- Card styling -->
+        <item name="materialCardViewStyle">@style/CICCardStyle</item>
+        <!-- Shape appearance -->
+        <item name="shapeAppearanceMediumComponent">@style/CICShapeMedium</item>
+        <item name="shapeAppearanceLargeComponent">@style/CICShapeLarge</item>
+    </style>
+
+    <style name="Theme.CICMobApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <!-- Splash theme: no flash of white before layout inflates -->
+    <style name="Theme.CICMobApp.Splash" parent="Theme.CICMobApp.NoActionBar">
+        <item name="android:windowBackground">@color/bg_primary</item>
+        <item name="android:windowFullscreen">false</item>
+    </style>
+
+    <!-- Card default style -->
+    <style name="CICCardStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/bg_card</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">0dp</item>
+    </style>
+
+    <!-- Shape tokens from blueprint -->
+    <style name="CICShapeMedium" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="CICShapeLarge" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerSize">16dp</item>
+    </style>
+
+</resources>
