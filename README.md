@@ -758,6 +758,4 @@ inside a single immersive cyber ecosystem.
 > CIC-MOB-APP is not merely a mobile application.
 
 > It is a futuristic cybersecurity workspace designed for builders, hackers, researchers, and future engineers.
-
-```
 ```
