@@ -1,4 +1,3 @@
-````md
 # CIC-MOB-APP
 
 A futuristic cybersecurity community platform built as a native Android application for the Cyber Innovators Club (CIC).
