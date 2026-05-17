@@ -1,451 +1,764 @@
+````md
 # CIC-MOB-APP
 
-A comprehensive mobile application developed as part of the CIC initiative. This project serves as a mobile-first solution designed to deliver seamless user experiences across iOS and Android platforms.
+A futuristic cybersecurity community platform built as a native Android application for the Cyber Innovators Club (CIC).
+
+CIC-MOB-APP combines:
+
+- technical community management
+- cybersecurity events
+- CTF activities
+- resource sharing
+- announcements
+- progression systems
+- administrative operations
+
+into a single immersive mobile ecosystem.
+
+The application is designed with a cyber-operating-system aesthetic inspired by:
+
+- Hack The Box
+- Discord
+- GitHub Dark
+- Raycast
+- VS Code
+- Cyberpunk tactical interfaces
 
 ---
 
-## 📋 Table of Contents
+# 📋 Table of Contents
 
-- [Overview](#overview)
-- [Project Status](#project-status)
-- [Tech Stack](#tech-stack)
-- [Features](#features)
-- [Architecture](#architecture)
-- [Installation](#installation)
-- [Development](#development)
-- [Build & Deployment](#build--deployment)
-- [Project Structure](#project-structure)
-- [Contributing Guidelines](#contributing-guidelines)
-- [Troubleshooting](#troubleshooting)
-- [License](#license)
-- [Contact](#contact)
-
----
-
-## 🎯 Overview
-
-**CIC-MOB-APP** is a mobile application designed to [describe the application's primary purpose and value proposition]. The application provides users with [key benefits and features], enabling them to [main use cases].
-
-### Key Objectives
-- Deliver a robust, user-friendly mobile experience
-- Ensure cross-platform compatibility (iOS & Android)
-- Maintain security and data privacy standards
-- Provide scalable architecture for future enhancements
+- [Overview](#-overview)
+- [Project Status](#-project-status)
+- [Core Features](#-core-features)
+- [Tech Stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [UI & UX System](#-ui--ux-system)
+- [Security Features](#-security-features)
+- [Offline-First Architecture](#-offline-first-architecture)
+- [Backend API](#-backend-api)
+- [Core Data Models](#-core-data-models)
+- [Project Structure](#-project-structure)
+- [Installation](#-installation)
+- [Development](#-development)
+- [Build & Deployment](#-build--deployment)
+- [Environment Variables](#-environment-variables)
+- [Screenshots](#-screenshots)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [Troubleshooting](#-troubleshooting)
+- [License](#-license)
+- [Contact](#-contact)
 
 ---
 
-## 📊 Project Status
+# 🎯 Overview
 
-| Aspect | Status |
-|--------|--------|
-| **Repository** | Active |
-| **Last Updated** | May 17, 2026 |
-| **Contributors** | 1 |
-| **Branches** | main, master |
-| **Issues** | None (Open) |
-| **Release** | Unreleased |
+CIC-MOB-APP is the official mobile platform of the Cyber Innovators Club (CIC).
 
----
+The platform acts as a centralized operational hub for students, cybersecurity enthusiasts, developers, mentors, and administrators.
 
-## 🛠️ Tech Stack
+The application provides:
 
-### Core Technologies
-- **Mobile Framework**: [React Native / Flutter / Native / Other]
-- **Language(s)**: [Kotlin / Swift / TypeScript / JavaScript / Python]
-- **Build Tool**: [Gradle / Xcode / Maven / Expo / EAS Build]
+- event discovery and registration
+- cybersecurity resource management
+- announcements and updates
+- technical community interaction
+- profile progression systems
+- administrator operational tools
+- immersive cyber-themed interfaces
 
-### Backend & Services
-- **Backend**: [Node.js / Python Flask / Django / Java / .NET]
-- **Database**: [Firebase / PostgreSQL / MongoDB / Other]
-- **Authentication**: [Firebase Auth / OAuth 2.0 / JWT / Custom]
-- **API Communication**: [REST / GraphQL]
+The goal is to transform a traditional student application into:
 
-### Development Tools
-- **Version Control**: Git
-- **Package Manager**: npm / yarn / pnpm / Gradle / CocoaPods
-- **Testing Framework**: [Jest / Mocha / XCTest / Espresso]
-- **Code Quality**: [ESLint / Prettier / Detekt / SwiftLint]
+> a futuristic digital workspace for builders, hackers, and innovators.
 
 ---
 
-## ✨ Features
+# 📊 Project Status
 
-### Implemented
-- [ ] User Authentication & Authorization
-- [ ] Core Application Features
-- [ ] Data Persistence
-- [ ] Cross-platform Compatibility
-
-### In Development
-- [ ] Feature Name
-- [ ] Feature Name
-
-### Planned
-- [ ] Feature Name
-- [ ] Feature Name
+| Component | Status |
+|---|---|
+| Android Application | Active Development |
+| Backend API | Active Development |
+| Authentication System | Implemented |
+| Event Management | Implemented |
+| Resource System | Implemented |
+| Announcements System | Implemented |
+| Admin Panel | Implemented |
+| Offline Caching | Implemented |
+| Discord OAuth2 | Implemented |
+| Real-Time Features | In Progress |
+| Push Notifications | Planned |
 
 ---
 
-## 🏗️ Architecture
+# ✨ Core Features
 
-### System Design
+# Authentication & Session Management
 
-```
-┌─────────────────────────────────────────┐
-│         Mobile Application              │
-│  (iOS / Android / React Native)        │
-└──────────────┬──────────────────────────┘
+- Email/password authentication
+- User registration system
+- Discord OAuth2 integration
+- Secure JWT session handling
+- Persistent auto-login
+- Encrypted token storage
+- Deep-link OAuth callback support
+
+---
+
+# Home Dashboard
+
+- Welcome header with XP and level
+- Live event carousel
+- Announcements feed
+- Quick access actions
+- Animated cyber grid background
+- Real-time operational feel
+
+---
+
+# Events System
+
+- Event discovery interface
+- Event detail pages
+- Event registration/unregistration
+- Difficulty indicators
+- Seats remaining tracking
+- Pull-to-refresh synchronization
+- Banner image rendering
+
+---
+
+# Resources Hub
+
+- Resource browsing system
+- Full-text search
+- Resource categorization
+- Difficulty metadata
+- Context-aware icons
+- Documentation/video/lab support
+
+---
+
+# Announcements System
+
+- Categorized announcements
+- Priority indicators
+- Pinned announcements
+- Feed previews
+- Administrative publishing system
+
+---
+
+# Profile System
+
+- Dynamic avatars
+- XP progression
+- User levels
+- Role system
+- Administrator access control
+- Cyber-themed profile presentation
+
+---
+
+# Administrator Panel
+
+## Dashboard
+
+- Live platform statistics
+- Platform health monitoring
+- Operational shortcuts
+- Refresh synchronization
+
+## Member Management
+
+- User search/filtering
+- Role management
+- Member inspection
+- Pull-to-refresh support
+
+## Event Management
+
+- Create/edit/delete events
+- Event metadata management
+- Capacity tracking
+- Administrative controls
+
+## Resource Management
+
+- Resource publishing
+- Resource editing
+- Resource deletion
+- Metadata management
+
+## Announcement Management
+
+- Create/edit/delete announcements
+- Pinned state management
+- Priority handling
+- Administrative broadcasting
+
+---
+
+# Living UI System
+
+- Persistent animated cyber grid
+- Signal pulse rendering
+- Ambient particle systems
+- Dark-mode-first design
+- Cyan/purple neon visual identity
+- Motion-driven interactions
+- Tactical operational atmosphere
+
+---
+
+# 🛠 Tech Stack
+
+# Android Application
+
+| Technology | Usage |
+|---|---|
+| Kotlin | Primary language |
+| XML Layouts | UI rendering |
+| ViewBinding | View binding system |
+| MVVM | Architecture pattern |
+| LiveData | Reactive UI updates |
+| Navigation Component | Screen navigation |
+| Room Database | Offline caching |
+| Retrofit | REST API communication |
+| OkHttp | Networking + interceptors |
+| Glide | Image loading |
+| Coroutines | Async operations |
+
+---
+
+# Backend
+
+| Technology | Usage |
+|---|---|
+| Node.js | Backend runtime |
+| Express.js | REST API server |
+| JWT | Authentication |
+| JSON Persistence | Mock database |
+| Discord OAuth2 | External authentication |
+
+---
+
+# Development Tools
+
+| Tool | Usage |
+|---|---|
+| Android Studio | Main IDE |
+| Gradle | Build system |
+| Git | Version control |
+| Postman | API testing |
+| Figma | UI/UX prototyping |
+
+---
+
+# 🏗 Architecture
+
+# System Architecture
+
+```text
+┌──────────────────────────────┐
+│      Android Application     │
+│   Activities + Fragments     │
+└──────────────┬───────────────┘
                │
-┌──────────────▼──────────────────────────┐
-│      API Gateway / REST / GraphQL        │
-└──────────────┬──────────────────────────┘
+┌──────────────▼───────────────┐
+│         ViewModels           │
+│       MVVM State Layer       │
+└──────────────┬───────────────┘
                │
-┌──────────────▼──────────────────────────┐
-│     Backend Services & Database          │
-│  (Authentication, Business Logic)        │
-└─────────────────────────────────────────┘
-```
-
-### Key Components
-
-1. **Presentation Layer**: Mobile UI built with [framework]
-2. **API Layer**: Communication with backend services
-3. **Business Logic**: Core application logic and state management
-4. **Data Layer**: Local storage and database operations
-
-### Design Patterns
-- **State Management**: [Redux / Context API / Provider / BLoC]
-- **Navigation**: [React Navigation / Navigation Stack]
-- **API Communication**: [Axios / Fetch API / Retrofit]
+┌──────────────▼───────────────┐
+│       Repository Layer       │
+│ Retrofit + Room + Cache      │
+└──────────────┬───────────────┘
+               │
+┌──────────────▼───────────────┐
+│         Mock REST API        │
+│    Node.js + Persistent DB   │
+└──────────────────────────────┘
+````
 
 ---
 
-## 📦 Installation
+# Architectural Principles
 
-### Prerequisites
-- **Node.js**: v16.0.0 or higher
-- **npm** or **yarn**: Latest version
-- **Xcode**: For iOS development (macOS only)
-- **Android Studio**: For Android development
-- **Git**: For version control
+* offline-first architecture
+* separation of concerns
+* reactive UI updates
+* scalable modular structure
+* repository abstraction
+* lifecycle-aware components
 
-### Setup Instructions
+---
 
-#### 1. Clone the Repository
+# 📡 UI & UX System
+
+# Design Philosophy
+
+The interface is designed to feel like:
+
+> a cybersecurity operating system rather than a traditional mobile app.
+
+---
+
+# Visual Identity
+
+## Primary Colors
+
+| Token         | Value     |
+| ------------- | --------- |
+| Background    | `#0A0C10` |
+| Cyan Accent   | `#00D1FF` |
+| Purple Accent | `#8B5CF6` |
+| Success Green | `#22C55E` |
+
+---
+
+# Interface Characteristics
+
+* animated cyber grid backgrounds
+* holographic-inspired surfaces
+* futuristic operational dashboards
+* smooth motion systems
+* tactical visual hierarchy
+* immersive dark mode
+* ambient animated particles
+
+---
+
+# Motion System
+
+* splash boot animations
+* pulse transitions
+* interactive feedback
+* signal propagation effects
+* ambient background rendering
+
+---
+
+# 🔐 Security Features
+
+* AES256-GCM encrypted token storage
+* JWT authentication
+* OAuth2 Discord integration
+* Role-based access control
+* Protected administrator routes
+* Secure session persistence
+* Auth interceptors
+* Deep-link validation
+* Token refresh handling
+
+---
+
+# 📦 Offline-First Architecture
+
+The application implements an offline-first architecture using Room Database caching.
+
+Features include:
+
+* cached events
+* cached resources
+* persistent user sessions
+* local-first loading
+* automatic synchronization
+* offline availability
+
+---
+
+# 🌐 Backend API
+
+# Base URL
+
+```text
+http://192.168.121.1:3000
+```
+
+---
+
+# Endpoint Groups
+
+| Endpoint Group   | Operations                       |
+| ---------------- | -------------------------------- |
+| `/auth`          | login, register, refresh, logout |
+| `/users`         | list, get, patch                 |
+| `/events`        | CRUD + registration              |
+| `/resources`     | CRUD + filtering                 |
+| `/announcements` | CRUD operations                  |
+| `/admin/stats`   | dashboard statistics             |
+
+---
+
+# Built-in Image Functions
+
+## avatarUrl(user)
+
+Generates role-colored UI avatars.
+
+## bannerUrl(event)
+
+Generates deterministic event banners.
+
+---
+
+# Mock Data
+
+Persistent demo data includes:
+
+* 5 users
+* 4 events
+* 5 resources
+* 3 announcements
+
+All modifications survive server restarts.
+
+---
+
+# 🧩 Core Data Models
+
+# User
+
+```text
+id
+username
+email
+role
+level
+xp
+avatar
+```
+
+---
+
+# Event
+
+```text
+id
+title
+description
+difficulty
+date
+location
+capacity
+participants
+banner
+```
+
+---
+
+# Resource
+
+```text
+id
+title
+type
+category
+difficulty
+url
+description
+```
+
+---
+
+# Announcement
+
+```text
+id
+title
+body
+type
+priority
+pinned
+createdAt
+```
+
+---
+
+# 📁 Project Structure
+
+```text
+CIC-MOB-APP/
+│
+├── app/
+│   ├── data/
+│   │   ├── api/
+│   │   ├── database/
+│   │   ├── models/
+│   │   └── repositories/
+│   │
+│   ├── ui/
+│   │   ├── auth/
+│   │   ├── home/
+│   │   ├── events/
+│   │   ├── resources/
+│   │   ├── announcements/
+│   │   ├── profile/
+│   │   ├── admin/
+│   │   └── components/
+│   │
+│   ├── navigation/
+│   ├── utils/
+│   ├── theme/
+│   └── MainActivity.kt
+│
+├── backend/
+├── screenshots/
+├── docs/
+├── README.md
+└── build.gradle
+```
+
+---
+
+# 📦 Installation
+
+# Prerequisites
+
+* Android Studio
+* JDK 17+
+* Android SDK
+* Node.js 18+
+* Git
+
+---
+
+# Clone Repository
+
 ```bash
 git clone https://github.com/fatehr15/CIC-MOB-APP.git
 cd CIC-MOB-APP
 ```
 
-#### 2. Install Dependencies
+---
+
+# Backend Setup
+
 ```bash
-# Using npm
+cd backend
 npm install
-
-# Using yarn
-yarn install
-
-# Using pnpm
-pnpm install
-```
-
-#### 3. Environment Configuration
-Create a `.env` file in the root directory:
-```env
-API_BASE_URL=https://api.example.com
-ENV=development
-LOG_LEVEL=debug
-```
-
-#### 4. Platform-Specific Setup
-
-**For iOS:**
-```bash
-cd ios
-pod install
-cd ..
-```
-
-**For Android:**
-```bash
-# Ensure Android SDK is installed and configured
-# Update Android SDK tools if necessary
-```
-
----
-
-## 🚀 Development
-
-### Running the Application
-
-#### Android
-```bash
-npm run android
-# or
-yarn android
-```
-
-#### iOS
-```bash
-npm run ios
-# or
-yarn ios
-```
-
-#### Web (if applicable)
-```bash
-npm run web
-# or
-yarn web
-```
-
-### Development Server
-```bash
 npm start
-# or
-yarn start
 ```
 
-### Code Quality
+Server runs on:
 
-#### Linting
-```bash
-npm run lint
-npm run lint:fix
+```text
+http://192.168.121.1:3000
 ```
-
-#### Type Checking
-```bash
-npm run type-check
-```
-
-#### Testing
-```bash
-npm run test
-npm run test:coverage
-```
-
-### Debugging
-
-- **Chrome DevTools**: Open Chrome DevTools for web debugging
-- **React Native Debugger**: Use standalone React Native Debugger
-- **Xcode Debugger**: For iOS-specific debugging
-- **Android Studio Debugger**: For Android-specific debugging
 
 ---
 
-## 🔨 Build & Deployment
+# Android Setup
 
-### Development Build
+Open the project in Android Studio.
+
+Then sync Gradle dependencies.
+
+---
+
+# 🚀 Development
+
+# Debug Build
+
 ```bash
-# Android
 ./gradlew assembleDebug
-
-# iOS
-xcodebuild -scheme CIC-MOB-APP -configuration Debug
 ```
 
-### Production Build
+---
+
+# Install Debug APK
+
 ```bash
-# Android
+./gradlew installDebug
+```
+
+---
+
+# Release Build
+
+```bash
 ./gradlew assembleRelease
-
-# iOS
-xcodebuild -scheme CIC-MOB-APP -configuration Release
-```
-
-### App Store Submission
-
-#### iOS (App Store)
-1. Archive the app in Xcode
-2. Upload to App Store Connect
-3. Complete app review process
-4. Release to users
-
-#### Android (Google Play Store)
-1. Create signed APK/AAB
-2. Upload to Google Play Console
-3. Complete app review process
-4. Release to users
-
-### CI/CD Pipeline
-- **Build Server**: [GitHub Actions / Jenkins / GitLab CI]
-- **Test Automation**: Automated unit and integration tests
-- **Deployment**: Automated release to app stores
-
----
-
-## 📁 Project Structure
-
-```
-CIC-MOB-APP/
-├── src/
-│   ├── components/          # Reusable UI components
-│   ├── screens/             # Application screens/pages
-│   ├── navigation/          # Navigation configuration
-│   ├── services/            # API and service calls
-│   ├── store/               # State management (Redux/Context)
-│   ├── utils/               # Utility functions
-│   ├── hooks/               # Custom React hooks
-│   ├── types/               # TypeScript type definitions
-│   └── constants/           # Application constants
-├── ios/                     # iOS-specific code
-├── android/                 # Android-specific code
-├── __tests__/              # Test files
-├── .env.example            # Environment variables template
-├── package.json            # Project dependencies
-├── tsconfig.json           # TypeScript configuration
-├── babel.config.js         # Babel configuration
-├── metro.config.js         # Metro bundler configuration
-├── jest.config.js          # Jest testing configuration
-└── README.md               # This file
 ```
 
 ---
 
-## 👥 Contributing Guidelines
+# Run Unit Tests
 
-We welcome contributions! Please follow these guidelines:
-
-### Code Style
-- Use [Prettier](https://prettier.io/) for code formatting
-- Follow [ESLint](https://eslint.org/) rules
-- Write meaningful commit messages
-
-### Pull Request Process
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Commit Message Format
-```
-<type>(<scope>): <subject>
-
-<body>
-
-<footer>
-```
-
-**Types**: feat, fix, docs, style, refactor, perf, test, chore
-
-### Testing
-- Write unit tests for new features
-- Ensure all tests pass before submitting PR
-- Maintain code coverage above 80%
-
----
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-#### Metro Bundler Issues
 ```bash
-# Clear Metro cache
-npm run start -- --reset-cache
-
-# or
-yarn start --reset-cache
+./gradlew test
 ```
 
-#### Gradle Build Failures (Android)
+---
+
+# Run Instrumentation Tests
+
 ```bash
-cd android
+./gradlew connectedAndroidTest
+```
+
+---
+
+# 🌍 Environment Variables
+
+Create a `.env` file inside the backend directory.
+
+```env
+PORT=3000
+JWT_SECRET=your_secret
+DISCORD_CLIENT_ID=your_client_id
+DISCORD_CLIENT_SECRET=your_client_secret
+DISCORD_REDIRECT_URI=cic://auth/callback
+```
+
+---
+
+# 📸 Screenshots
+
+# Planned Screenshots
+
+* Authentication Screens
+* Home Dashboard
+* Events System
+* Resources Hub
+* Profile System
+* Administrator Panel
+* Animated Cyber Grid UI
+
+---
+
+# 🛣 Roadmap
+
+# Planned Features
+
+* WebSocket real-time synchronization
+* Push notifications
+* Integrated CTF platform
+* Mentorship system
+* AI assistant
+* Team collaboration system
+* Real-time activity feeds
+* Advanced analytics dashboard
+* Live event systems
+
+---
+
+# 🤝 Contributing
+
+# Development Workflow
+
+1. Fork repository
+2. Create feature branch
+3. Commit changes
+4. Push branch
+5. Open pull request
+
+---
+
+# Commit Convention
+
+```text
+feat: add event registration system
+fix: resolve token refresh issue
+refactor: optimize repository layer
+```
+
+---
+
+# Code Standards
+
+* clean architecture principles
+* meaningful commit messages
+* modular components
+* lifecycle-aware implementations
+* consistent naming conventions
+
+---
+
+# 🐛 Troubleshooting
+
+# Gradle Build Issues
+
+```bash
 ./gradlew clean
-./gradlew build
-cd ..
 ```
 
-#### CocoaPods Issues (iOS)
+---
+
+# Android Studio Cache Problems
+
+```text
+File → Invalidate Caches → Restart
+```
+
+---
+
+# Backend Dependency Issues
+
 ```bash
-cd ios
-rm -rf Pods
-rm Podfile.lock
-pod install
-cd ..
+npm install
 ```
 
-#### Port Already in Use
-```bash
-# Find process using port 8081
-lsof -i :8081
+---
 
-# Kill process
-kill -9 <PID>
+# Emulator Networking Issues
+
+Use:
+
+```text
+10.0.2.2
 ```
 
-### Getting Help
-- Check existing [Issues](https://github.com/fatehr15/CIC-MOB-APP/issues)
-- Review [Discussions](https://github.com/fatehr15/CIC-MOB-APP/discussions)
-- Contact the development team
+instead of localhost when testing on Android Emulator.
 
 ---
 
-## 📄 License
+# 📄 License
 
-This project is licensed under the [License Type] License - see the [LICENSE](LICENSE) file for details.
+This project is currently under private development.
 
----
-
-## 📞 Contact
-
-- **Project Lead**: [Name]
-- **Email**: [email@example.com]
-- **Slack**: [Slack Channel]
-- **Issues**: [GitHub Issues](https://github.com/fatehr15/CIC-MOB-APP/issues)
-
-### Additional Resources
-- [Project Documentation](./docs)
-- [API Documentation](./docs/api.md)
-- [Developer Guide](./docs/DEVELOPER.md)
-- [Changelog](./CHANGELOG.md)
+License definition will be added later.
 
 ---
 
-## 🎓 Learning Resources
+# 📞 Contact
 
-### Recommended Reading
-- [React Native Documentation](https://reactnative.dev/)
-- [Mobile Development Best Practices](https://developers.google.com/apps)
-- [API Design Guidelines](https://restfulapi.net/)
+# Project Lead
 
-### Useful Tools
-- [VS Code](https://code.visualstudio.com/)
-- [Postman](https://www.postman.com/) - API Testing
-- [Charles Proxy](https://www.charlesproxy.com/) - Network Debugging
-- [Firebase Console](https://console.firebase.google.com/) - Backend Management
+Fateh
 
 ---
 
-## 📈 Project Metrics
+# Repository
 
-| Metric | Value |
-|--------|-------|
-| **Repository Size** | Pending |
-| **Lines of Code** | Pending |
-| **Test Coverage** | Pending |
-| **Build Time** | Pending |
-| **Bundle Size** | Pending |
+[CIC-MOB-APP Repository](https://github.com/fatehr15/CIC-MOB-APP?utm_source=chatgpt.com)
 
 ---
 
-## 🗓️ Changelog
+# 🎯 Final Vision
 
-### [Unreleased]
-- Initial project setup
-- Repository initialized with basic structure
+CIC-MOB-APP is designed to become:
 
-### Version History
-- See [CHANGELOG.md](CHANGELOG.md) for detailed version history
+> the digital operational headquarters of the Cyber Innovators Club.
+
+The platform aims to unify:
+
+* cybersecurity learning
+* technical collaboration
+* events
+* community interaction
+* administrative operations
+
+inside a single immersive cyber ecosystem.
 
 ---
 
-**Last Updated**: May 17, 2026  
-**Repository**: [fatehr15/CIC-MOB-APP](https://github.com/fatehr15/CIC-MOB-APP)  
-**Status**: 🚀 In Development
+# Final Identity Statement
 
----
+> CIC-MOB-APP is not merely a mobile application.
 
-*This README serves as a comprehensive guide for developers, contributors, and stakeholders involved with the CIC-MOB-APP project.*
+> It is a futuristic cybersecurity workspace designed for builders, hackers, researchers, and future engineers.
+
+```
+```
