@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity {
         setupSignIn();
         setupRegister();
         observeViewModel();
+
+        // Handle OAuth redirect delivered to a fresh onCreate (e.g., after browser redirect
+        // when this activity was not at the top of the stack).
+        handleDiscordIntent(getIntent());
     }
 
     // ── Tab switching ─────────────────────────────────────────────────────────
@@ -144,6 +148,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
+        handleDiscordIntent(intent);
+    }
+
+    private void handleDiscordIntent(Intent intent) {
         Uri data = intent.getData();
         if (data != null && "cic".equals(data.getScheme())) {
             String code = data.getQueryParameter("code");

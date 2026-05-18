@@ -4,47 +4,133 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/bg_primary">
 
-    <LinearLayout
+    <!-- ── Stats bar ─────────────────────────────────────────────────────── -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical"
+        android:scrollbars="none"
         android:background="@color/bg_surface">
+        <LinearLayout
+            android:id="@+id/statsRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp" android:paddingEnd="12dp"
+            android:paddingTop="10dp" android:paddingBottom="10dp"
+            android:gravity="center_vertical" />
+    </HorizontalScrollView>
+
+    <!-- ── Search ────────────────────────────────────────────────────────── -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:background="@color/bg_surface"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search by action, entity, detail..."
+        app:searchIcon="@android:drawable/ic_menu_search" />
+
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- ── Severity filter chips ─────────────────────────────────────────── -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/bg_surface"
+        android:paddingStart="10dp" android:paddingEnd="10dp"
+        android:paddingTop="6dp" android:paddingBottom="6dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll" style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="All" android:checked="true" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider" app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipInfo" style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="INFO" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider" app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipWarning" style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="WARNING" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider" app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCritical" style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="CRITICAL" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider" app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipSecurity" style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="SECURITY" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider" app:chipStrokeWidth="1dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- ── Count + clear row ─────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp" android:paddingEnd="8dp"
+        android:background="@color/bg_primary">
 
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/tvAuditCount"
+            android:layout_width="0dp" android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Admin Activity Log"
-            android:textColor="@color/text_primary"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:textColor="@color/text_secondary" android:textSize="12sp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnClearLog"
             style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="34dp"
-            android:text="Clear"
-            android:textSize="11sp"
-            app:strokeColor="@color/divider"
-            app:cornerRadius="8dp" />
+            android:layout_width="wrap_content" android:layout_height="28dp"
+            android:text="Clear Log" android:textSize="11sp"
+            android:textColor="@color/status_error"
+            android:paddingStart="10dp" android:paddingEnd="10dp"
+            app:strokeColor="@color/status_error" app:cornerRadius="8dp" />
 
     </LinearLayout>
 
+    <View android:layout_width="match_parent" android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- ── Log list ───────────────────────────────────────────────────────── -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAudit"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:padding="12dp"
+        android:padding="10dp"
         android:clipToPadding="false"
+        android:visibility="gone"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-    <!-- Empty state -->
+    <!-- ── Empty state ───────────────────────────────────────────────────── -->
     <LinearLayout
         android:id="@+id/emptyAudit"
         android:layout_width="match_parent"
@@ -52,22 +138,23 @@
         android:layout_weight="1"
         android:orientation="vertical"
         android:gravity="center"
-        android:padding="32dp"
-        android:visibility="gone">
+        android:padding="32dp">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="No activity yet"
+            android:text="No activity logged yet"
             android:textColor="@color/text_secondary"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Actions you take will appear here"
+            android:text="Actions taken in this session will appear here"
             android:textColor="@color/text_disabled"
             android:textSize="13sp"
+            android:gravity="center"
             android:layout_marginTop="6dp" />
 
     </LinearLayout>

@@ -20,6 +20,7 @@ public class ProfileFragment extends Fragment {
 
     private FragmentProfileBinding binding;
     private ProfileViewModel       viewModel;
+    private com.cic.mobapp.data.local.entity.UserEntity currentUser;
 
     @Nullable @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -35,6 +36,7 @@ public class ProfileFragment extends Fragment {
 
         viewModel.getUser().observe(getViewLifecycleOwner(), user -> {
             if (user == null) return;
+            currentUser = user;
 
             binding.tvUsername.setText(user.username);
             binding.tvRole.setText(user.role);
@@ -63,8 +65,15 @@ public class ProfileFragment extends Fragment {
             binding.btnAdminPanel.setVisibility(isAdmin ? View.VISIBLE : View.GONE);
         });
 
-        binding.btnSettings.setOnClickListener(v ->
-                startActivity(new Intent(requireContext(), SettingsActivity.class)));
+        binding.btnSettings.setOnClickListener(v -> {
+            Intent intent = new Intent(requireContext(), SettingsActivity.class);
+            if (currentUser != null) {
+                intent.putExtra("username", currentUser.username);
+                intent.putExtra("email",    currentUser.email);
+                intent.putExtra("role",     currentUser.role);
+            }
+            startActivity(intent);
+        });
 
         binding.btnAdminPanel.setOnClickListener(v ->
                 startActivity(new Intent(requireContext(), AdminActivity.class)));

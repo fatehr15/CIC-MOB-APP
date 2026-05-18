@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
+    android:layout_marginBottom="8dp"
     app:cardBackgroundColor="@color/bg_card"
     app:cardCornerRadius="14dp"
     app:cardElevation="0dp"
@@ -14,62 +14,201 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="14dp"
-        android:gravity="center_vertical">
+        android:orientation="vertical"
+        android:padding="14dp">
 
-        <!-- Avatar -->
-        <ImageView
-            android:id="@+id/imgAvatar"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:layout_marginEnd="12dp"
-            android:scaleType="centerCrop"
-            android:background="@drawable/bg_avatar_circle" />
-
-        <!-- Info -->
+        <!-- ── Top row: avatar + info + more button ── -->
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tvUsername"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_primary"
-                android:textSize="14sp"
-                android:textStyle="bold" />
+            <!-- Avatar with status dot -->
+            <FrameLayout
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_marginEnd="12dp">
 
-            <TextView
-                android:id="@+id/tvEmail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/text_secondary"
-                android:textSize="12sp"
-                android:layout_marginTop="2dp" />
+                <ImageView
+                    android:id="@+id/imgAvatar"
+                    android:layout_width="52dp"
+                    android:layout_height="52dp"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/bg_avatar_circle" />
 
-            <TextView
-                android:id="@+id/tvRole"
-                android:layout_width="wrap_content"
+                <!-- Status indicator dot -->
+                <View
+                    android:id="@+id/viewStatusDot"
+                    android:layout_width="14dp"
+                    android:layout_height="14dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/dot_green" />
+
+            </FrameLayout>
+
+            <!-- Identity info -->
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="@color/accent_cyan"
-                android:textSize="11sp"
-                android:layout_marginTop="2dp" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- Username + role badge -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="3dp">
+
+                    <TextView
+                        android:id="@+id/tvUsername"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:maxLines="1"
+                        android:ellipsize="end" />
+
+                    <!-- Role badge — background color set in code -->
+                    <TextView
+                        android:id="@+id/tvRoleBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:letterSpacing="0.06"
+                        android:paddingStart="7dp"
+                        android:paddingEnd="7dp"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp"
+                        android:layout_marginStart="8dp" />
+
+                </LinearLayout>
+
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="12sp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:layout_marginBottom="5dp" />
+
+                <!-- Level · XP · Joined -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/tvLevel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/accent_cyan"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  |  "
+                        android:textColor="@color/text_disabled"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvXp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_secondary"
+                        android:textSize="11sp"
+                        android:fontFamily="monospace" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="  |  "
+                        android:textColor="@color/text_disabled"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/tvJoined"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/text_disabled"
+                        android:textSize="11sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- More options button -->
+            <ImageButton
+                android:id="@+id/btnMore"
+                android:layout_width="34dp"
+                android:layout_height="34dp"
+                android:layout_marginStart="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_more"
+                android:tint="@color/text_secondary"
+                android:scaleType="center"
+                android:contentDescription="More options" />
 
         </LinearLayout>
 
-        <!-- Role button -->
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnChangeRole"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="36dp"
-            android:text="Role"
-            android:textSize="11sp"
-            app:strokeColor="@color/accent_purple"
-            app:cornerRadius="8dp" />
+        <!-- ── XP progress bar ── -->
+        <ProgressBar
+            android:id="@+id/progressXp"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:max="1000"
+            android:progressTint="@color/accent_cyan"
+            android:progressBackgroundTint="@color/bg_elevated" />
+
+        <!-- ── Bottom row: activity label + discord badge ── -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Activity status label -->
+            <TextView
+                android:id="@+id/tvActivityLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:fontFamily="monospace"
+                android:letterSpacing="0.06" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+
+            <!-- Discord linked indicator -->
+            <TextView
+                android:id="@+id/tvDiscordBadge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DISCORD"
+                android:textSize="9sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.06"
+                android:textColor="#7289DA"
+                android:visibility="gone" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

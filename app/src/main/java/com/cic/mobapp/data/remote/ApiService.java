@@ -52,6 +52,9 @@ public interface ApiService {
     @PATCH("users/{id}")
     Call<UserDto> updateUser(@Path("id") String id, @Body UserDto user);
 
+    @DELETE("users/{id}")
+    Call<Void> deleteUser(@Path("id") String id);
+
     // Events
     @GET("events")
     Call<List<EventDto>> getEvents(

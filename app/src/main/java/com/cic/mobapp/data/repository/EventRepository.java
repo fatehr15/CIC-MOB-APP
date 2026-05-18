@@ -28,7 +28,6 @@ public class EventRepository {
         apiService = RetrofitClient.getApiService();
     }
 
-    /** Persistent LiveData from Room — never changes reference. */
     public LiveData<List<EventEntity>> getEventsLiveData() {
         return eventDao.getAll();
     }
@@ -37,7 +36,6 @@ public class EventRepository {
         return eventDao.getById(id);
     }
 
-    /** Triggers an API call that writes results into Room (LiveData auto-updates). */
     public void refreshFromApi(Runnable onSuccess, Consumer<String> onError) {
         apiService.getEvents(null, null, null).enqueue(new Callback<List<EventDto>>() {
             @Override public void onResponse(Call<List<EventDto>> call, Response<List<EventDto>> r) {
@@ -58,12 +56,59 @@ public class EventRepository {
         });
     }
 
+    // ── Registration — local-first when API is offline ────────────────────────
+
     public void registerForEvent(String eventId, Runnable onSuccess, Runnable onError) {
         apiService.registerForEvent(eventId).enqueue(new Callback<Void>() {
             @Override public void onResponse(Call<Void> c, Response<Void> r) {
-                if (r.isSuccessful()) onSuccess.run(); else onError.run();
+                if (r.isSuccessful()) {
+                    applyLocalRegistration(eventId, true);
+                    onSuccess.run();
+                } else {
+                    onError.run();
+                }
             }
-            @Override public void onFailure(Call<Void> c, Throwable t) { onError.run(); }
+            @Override public void onFailure(Call<Void> c, Throwable t) {
+                // API unreachable — register locally so the user sees the change immediately
+                applyLocalRegistration(eventId, true);
+                onSuccess.run();
+            }
+        });
+    }
+
+    public void unregisterFromEvent(String eventId, Runnable onSuccess, Runnable onError) {
+        apiService.unregisterFromEvent(eventId).enqueue(new Callback<Void>() {
+            @Override public void onResponse(Call<Void> c, Response<Void> r) {
+                if (r.isSuccessful()) {
+                    applyLocalRegistration(eventId, false);
+                    onSuccess.run();
+                } else {
+                    onError.run();
+                }
+            }
+            @Override public void onFailure(Call<Void> c, Throwable t) {
+                applyLocalRegistration(eventId, false);
+                onSuccess.run();
+            }
+        });
+    }
+
+    /**
+     * Writes the registration state directly into Room so Room LiveData
+     * notifies all observers (EventDetailActivity, HomeFragment, etc.) immediately.
+     */
+    private void applyLocalRegistration(String eventId, boolean register) {
+        executor.execute(() -> {
+            EventEntity ev = eventDao.getByIdSync(eventId);
+            if (ev == null) return;
+            if (register && !ev.isRegistered) {
+                ev.isRegistered    = true;
+                ev.registeredCount = ev.registeredCount + 1;
+            } else if (!register && ev.isRegistered) {
+                ev.isRegistered    = false;
+                ev.registeredCount = Math.max(0, ev.registeredCount - 1);
+            }
+            eventDao.upsert(ev);
         });
     }
 

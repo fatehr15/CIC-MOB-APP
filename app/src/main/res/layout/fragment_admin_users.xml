@@ -5,45 +5,212 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    >
+    android:background="@color/bg_primary">
 
-    <LinearLayout
+    <!-- ── Stats bar ─────────────────────────────────────────────────────── -->
+    <HorizontalScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="12dp"
-        android:gravity="center_vertical"
+        android:scrollbars="none"
         android:background="@color/bg_surface">
 
-        <androidx.appcompat.widget.SearchView
-            android:id="@+id/searchView"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:layout_weight="1"
-            app:iconifiedByDefault="false"
-            app:queryHint="Search members..."
-            app:searchIcon="@android:drawable/ic_menu_search" />
+        <LinearLayout
+            android:id="@+id/statsRow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:gravity="center_vertical" />
+
+    </HorizontalScrollView>
+
+    <!-- ── Search ────────────────────────────────────────────────────────── -->
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/searchView"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/bg_surface"
+        app:iconifiedByDefault="false"
+        app:queryHint="Search by name, email, role, ID..."
+        app:searchIcon="@android:drawable/ic_menu_search" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- ── Filter chips ──────────────────────────────────────────────────── -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:background="@color/bg_surface"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="6dp"
+        android:paddingBottom="6dp">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAll"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="All"
+                android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipAdmin"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Admin"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMentor"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mentor"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipOrganizer"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Organizer"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMember"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Member"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipGuest"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Guest"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipActive"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Active"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDiscord"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discord Linked"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated"
+                app:checkedIconVisible="false"
+                app:chipStrokeColor="@color/divider"
+                app:chipStrokeWidth="1dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+    </HorizontalScrollView>
+
+    <!-- ── Count + sort row ──────────────────────────────────────────────── -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="8dp"
+        android:background="@color/bg_primary">
 
         <TextView
             android:id="@+id/tvUserCount"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:textColor="@color/text_secondary"
-            android:textSize="12sp"
-            android:layout_marginStart="8dp" />
+            android:textSize="12sp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSort"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Sort: XP"
+            android:textSize="11sp"
+            android:textColor="@color/accent_cyan"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:strokeColor="@color/divider"
+            app:cornerRadius="8dp" />
 
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/divider" />
+
+    <!-- ── User list ──────────────────────────────────────────────────────── -->
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipeRefresh"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUsers"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="12dp"
+            android:padding="10dp"
             android:clipToPadding="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 

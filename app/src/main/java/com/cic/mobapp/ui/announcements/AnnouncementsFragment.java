@@ -109,6 +109,7 @@ public class AnnouncementsFragment extends Fragment {
 
     class AnnouncementsAdapter extends RecyclerView.Adapter<AnnouncementsAdapter.VH> {
         private List<AnnouncementDto> data = new ArrayList<>();
+        private final ReadTracker tracker = new ReadTracker(requireContext());
 
         void setData(List<AnnouncementDto> d) { data = d; notifyDataSetChanged(); }
 
@@ -127,7 +128,6 @@ public class AnnouncementsFragment extends Fragment {
             h.b.tvAnnPinned.setVisibility(a.isPinned ? View.VISIBLE : View.GONE);
 
             // Unread dot
-            ReadTracker tracker = new ReadTracker(requireContext());
             boolean unread = a.id != null && !tracker.isRead(a.id);
             h.b.dotUnread.setVisibility(unread ? View.VISIBLE : View.GONE);
 

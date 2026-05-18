@@ -12,7 +12,7 @@ public class EventDetailViewModel extends AndroidViewModel {
 
     private final EventRepository      repository;
     private       LiveData<EventEntity> event;
-    private final MutableLiveData<String>  toast   = new MutableLiveData<>();
+    private final MutableLiveData<String>  toast      = new MutableLiveData<>();
     private final MutableLiveData<Boolean> registered = new MutableLiveData<>(false);
 
     public EventDetailViewModel(@NonNull Application app) {
@@ -28,20 +28,20 @@ public class EventDetailViewModel extends AndroidViewModel {
         return event;
     }
 
-    public LiveData<String>  getToast()      { return toast; }
-    public LiveData<Boolean> isRegistered()  { return registered; }
+    public LiveData<String>  getToast()     { return toast; }
+    public LiveData<Boolean> isRegistered() { return registered; }
 
     public void toggleRegistration(EventEntity e) {
         if (e.isRegistered) {
-            repository.registerForEvent(e.id,
-                    () -> { toast.postValue("Unregistered from " + e.title); registered.postValue(false); },
-                    () -> toast.postValue("Failed to unregister")
-            );
+            // Already registered — unregister
+            repository.unregisterFromEvent(e.id,
+                    () -> toast.postValue("Unregistered from " + e.title),
+                    () -> toast.postValue("Failed to unregister — try again"));
         } else {
+            // Not registered — register
             repository.registerForEvent(e.id,
-                    () -> { toast.postValue("Registered for " + e.title + "!"); registered.postValue(true); },
-                    () -> toast.postValue("Registration failed — try again")
-            );
+                    () -> toast.postValue("Registered for " + e.title + "!"),
+                    () -> toast.postValue("Registration failed — try again"));
         }
     }
 }

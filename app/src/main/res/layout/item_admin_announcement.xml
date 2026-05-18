@@ -14,111 +14,165 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="14dp">
+        android:orientation="horizontal">
 
-        <!-- Type + pin badge -->
+        <!-- ── Priority indicator bar (left edge) ────────────────────── -->
+        <View
+            android:id="@+id/viewPriorityBar"
+            android:layout_width="4dp"
+            android:layout_height="match_parent" />
+
+        <!-- ── Content ───────────────────────────────────────────────── -->
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:layout_marginBottom="6dp">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="13dp">
 
+            <!-- Row 1: type badge + priority + pinned + more -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="7dp">
+
+                <!-- Type badge -->
+                <TextView
+                    android:id="@+id/tvAnnType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.08"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginEnd="6dp" />
+
+                <!-- Priority badge -->
+                <TextView
+                    android:id="@+id/tvAnnPriority"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.06"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:visibility="gone" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <!-- Pinned indicator -->
+                <TextView
+                    android:id="@+id/tvAnnPinned"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PINNED"
+                    android:textColor="@color/status_warning"
+                    android:textSize="9sp"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:layout_marginEnd="6dp"
+                    android:visibility="gone" />
+
+                <!-- More options -->
+                <ImageButton
+                    android:id="@+id/btnMore"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_more"
+                    android:tint="@color/text_secondary"
+                    android:scaleType="center"
+                    android:contentDescription="More options" />
+
+            </LinearLayout>
+
+            <!-- Title -->
             <TextView
-                android:id="@+id/tvAnnType"
+                android:id="@+id/tvAnnTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:layout_marginBottom="6dp" />
+
+            <!-- Body -->
+            <TextView
+                android:id="@+id/tvAnnBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="13sp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:lineSpacingMultiplier="1.3"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Meta: date -->
+            <TextView
+                android:id="@+id/tvAnnMeta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/accent_cyan"
-                android:textSize="10sp"
-                android:textAllCaps="true"
-                android:letterSpacing="0.1"
-                android:background="@drawable/bg_tag"
-                android:paddingStart="6dp"
-                android:paddingEnd="6dp"
-                android:paddingTop="2dp"
-                android:paddingBottom="2dp"
-                android:layout_marginEnd="8dp" />
-
-            <TextView
-                android:id="@+id/tvAnnPriority"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/status_warning"
-                android:textSize="10sp"
-                android:visibility="gone" />
-
-            <View android:layout_width="0dp" android:layout_height="0dp" android:layout_weight="1" />
-
-            <TextView
-                android:id="@+id/tvAnnPinned"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="PINNED"
-                android:textColor="@color/status_warning"
-                android:textSize="10sp"
-                android:visibility="gone" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/tvAnnTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_primary"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            android:maxLines="2"
-            android:ellipsize="end"
-            android:layout_marginBottom="6dp" />
-
-        <TextView
-            android:id="@+id/tvAnnBody"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_secondary"
-            android:textSize="13sp"
-            android:maxLines="3"
-            android:ellipsize="end"
-            android:lineSpacingMultiplier="1.3" />
-
-        <!-- Meta -->
-        <TextView
-            android:id="@+id/tvAnnMeta"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_disabled"
-            android:textSize="11sp"
-            android:layout_marginTop="6dp" />
-
-        <!-- Action row -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="end"
-            android:layout_marginTop="10dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnEdit"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:text="Edit"
+                android:textColor="@color/text_disabled"
                 android:textSize="11sp"
-                android:layout_marginEnd="6dp"
-                app:strokeColor="@color/accent_purple"
-                app:cornerRadius="8dp" />
+                android:fontFamily="monospace"
+                android:layout_marginBottom="10dp" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnDelete"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="34dp"
-                android:text="Delete"
-                android:textSize="11sp"
-                app:strokeColor="@color/status_error"
-                app:cornerRadius="8dp" />
+            <!-- Action row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnEdit"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Edit"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/accent_purple"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnTogglePin"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Pin"
+                    android:textSize="11sp"
+                    android:layout_marginEnd="6dp"
+                    app:strokeColor="@color/status_warning"
+                    app:cornerRadius="8dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDelete"
+                    style="?attr/materialButtonOutlinedStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:text="Delete"
+                    android:textSize="11sp"
+                    app:strokeColor="@color/status_error"
+                    app:cornerRadius="8dp" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

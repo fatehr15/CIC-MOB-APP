@@ -26,15 +26,31 @@ public class AdminDashboardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         viewModel = new ViewModelProvider(requireActivity()).get(AdminViewModel.class);
 
-        viewModel.getStats().observe(getViewLifecycleOwner(), stats -> {
-            if (stats == null) return;
-            binding.tvMembersCount.setText(String.valueOf(stats.getOrDefault("totalUsers", 0)));
-            binding.tvEventsCount.setText(String.valueOf(stats.getOrDefault("totalEvents", 0)));
-            binding.tvResourcesCount.setText(String.valueOf(stats.getOrDefault("totalResources", 0)));
-            binding.tvAnnouncementsCount.setText(String.valueOf(stats.getOrDefault("totalAnnouncements", 0)));
+        // Members — live count from Room (falls back to Room when API offline)
+        viewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
+            if (users != null)
+                binding.tvMembersCount.setText(String.valueOf(users.size()));
         });
 
-        // Quick action navigation — tab indices: 0=Dashboard 1=Members 2=Events 3=Resources 4=Announcements
+        // Events
+        viewModel.getEvents().observe(getViewLifecycleOwner(), events -> {
+            if (events != null)
+                binding.tvEventsCount.setText(String.valueOf(events.size()));
+        });
+
+        // Resources
+        viewModel.getResources().observe(getViewLifecycleOwner(), resources -> {
+            if (resources != null)
+                binding.tvResourcesCount.setText(String.valueOf(resources.size()));
+        });
+
+        // Announcements — Room LiveData via AdminViewModel
+        viewModel.getAnnouncements().observe(getViewLifecycleOwner(), anns -> {
+            if (anns != null)
+                binding.tvAnnouncementsCount.setText(String.valueOf(anns.size()));
+        });
+
+        // Quick action navigation
         binding.btnGoMembers.setOnClickListener(v -> navigate(1));
         binding.btnGoEvents.setOnClickListener(v -> navigate(2));
         binding.btnGoResources.setOnClickListener(v -> navigate(3));
@@ -44,9 +60,8 @@ public class AdminDashboardFragment extends Fragment {
     }
 
     private void navigate(int tab) {
-        if (requireActivity() instanceof AdminActivity) {
+        if (requireActivity() instanceof AdminActivity)
             ((AdminActivity) requireActivity()).navigateToTab(tab);
-        }
     }
 
     @Override public void onDestroyView() { super.onDestroyView(); binding = null; }

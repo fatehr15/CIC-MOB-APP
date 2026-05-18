@@ -1,69 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_height="wrap_content">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="Title"
-        app:boxStrokeColor="@color/accent_cyan">
+        android:orientation="vertical"
+        android:padding="20dp">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAnnTitle"
+        <!-- Title -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:imeOptions="actionNext" />
+            android:layout_marginBottom="12dp"
+            android:hint="Title *"
+            app:boxStrokeColor="@color/accent_cyan">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAnnTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:imeOptions="actionNext" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    </com.google.android.material.textfield.TextInputLayout>
+        <!-- Type chips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TYPE"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="Body"
-        app:boxStrokeColor="@color/accent_cyan">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etAnnBody"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:minLines="3"
-            android:gravity="top" />
+            android:scrollbars="none"
+            android:layout_marginBottom="12dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true">
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:hint="Type (e.g. General, Event, Technical)"
-        app:boxStrokeColor="@color/accent_cyan">
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeGeneral"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="General" android:checked="true"
+                    android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
 
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeTechnical"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Technical" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeWorkshop"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Workshop" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeCTF"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="CTF" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeMeeting"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Meeting" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeEmergency"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Emergency" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTypeResource"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="Resource Release" android:textColor="@color/text_primary"
+                    app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+            </com.google.android.material.chip.ChipGroup>
+        </HorizontalScrollView>
+
+        <!-- Priority chips -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PRIORITY"
+            android:textColor="@color/accent_cyan"
+            android:textSize="10sp"
+            android:letterSpacing="0.1"
+            android:layout_marginBottom="6dp" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupPriority"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:singleSelection="true"
+            app:selectionRequired="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPrioLow"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Low" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPrioNormal"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Normal" android:checked="true"
+                android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPrioImportant"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Important" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPrioCritical"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Critical" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipPrioEmergency"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:text="Emergency" android:textColor="@color/text_primary"
+                app:chipBackgroundColor="@color/bg_elevated" app:checkedIconVisible="false" />
+
+        </com.google.android.material.chip.ChipGroup>
+
+        <!-- Body -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:hint="Message body *"
+            app:boxStrokeColor="@color/accent_cyan">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAnnBody"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:minLines="4"
+                android:gravity="top" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Pin toggle -->
+        <CheckBox
+            android:id="@+id/cbPinned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pin to top of feed"
+            android:textColor="@color/text_primary"
+            android:buttonTint="@color/accent_cyan" />
+
+        <!-- Hidden type field for backward compat -->
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etAnnType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="text" />
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:visibility="gone" />
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
-    <CheckBox
-        android:id="@+id/cbPinned"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pin this announcement"
-        android:textColor="@color/text_primary"
-        android:buttonTint="@color/accent_cyan" />
-
-</LinearLayout>
+</ScrollView>

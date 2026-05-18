@@ -14,14 +14,16 @@
         android:padding="32dp"
         android:gravity="center_horizontal">
 
-        <!-- Logo -->
+        <!-- CIC Shield Logo -->
         <ImageView
             android:id="@+id/imgLogo"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@android:drawable/ic_menu_compass"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/ic_cic_logo"
+            android:scaleType="fitCenter"
+            android:contentDescription="CIC Logo"
             android:layout_marginTop="32dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="12dp" />
 
         <TextView
             android:id="@+id/tvTitle"

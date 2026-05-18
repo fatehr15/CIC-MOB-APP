@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/bg_surface">
+
+    <!-- Header stats bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/bg_elevated"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvParticipantCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/accent_cyan"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="REGISTERED"
+                android:textColor="@color/text_disabled"
+                android:textSize="10sp"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvCapacityInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="—"
+                android:textColor="@color/matrix_green"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CAPACITY"
+                android:textColor="@color/text_disabled"
+                android:textSize="10sp"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
+
+        <View android:layout_width="1dp" android:layout_height="match_parent"
+            android:background="@color/divider" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvAttendingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/accent_purple"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:fontFamily="monospace" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ATTENDED"
+                android:textColor="@color/text_disabled"
+                android:textSize="10sp"
+                android:letterSpacing="0.1" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Fill progress bar -->
+    <ProgressBar
+        android:id="@+id/progressFill"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:max="100"
+        android:progressTint="@color/accent_cyan"
+        android:progressBackgroundTint="@color/bg_elevated" />
+
+    <!-- Add member button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnAddParticipant"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_margin="12dp"
+        android:text="+ Add Member"
+        android:textColor="@color/bg_primary"
+        android:textSize="13sp"
+        app:backgroundTint="@color/accent_cyan"
+        app:cornerRadius="10dp" />
+
+    <!-- Participant list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvParticipants"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxHeight="320dp"
+        android:nestedScrollingEnabled="false"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:paddingBottom="8dp"
+        android:clipToPadding="false"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</LinearLayout>

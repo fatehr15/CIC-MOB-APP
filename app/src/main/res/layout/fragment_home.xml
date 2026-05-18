@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.core.widget.NestedScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/bg_primary"
+    android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingBottom="24dp">
 
-        <!-- Hero header card -->
+        <!-- ── Hero header ─────────────────────────────────────────────── -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="20dp"
             app:cardBackgroundColor="@color/bg_card"
-            app:cardCornerRadius="16dp"
+            app:cardCornerRadius="18dp"
             app:cardElevation="0dp"
             app:strokeColor="@color/divider"
             app:strokeWidth="1dp">
@@ -28,6 +33,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
+                <!-- Avatar + name + level badge -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -37,9 +43,9 @@
 
                     <ImageView
                         android:id="@+id/imgAvatar"
-                        android:layout_width="48dp"
-                        android:layout_height="48dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_marginEnd="14dp"
                         android:background="@drawable/bg_avatar_circle"
                         android:scaleType="centerCrop" />
 
@@ -55,7 +61,7 @@
                             android:layout_height="wrap_content"
                             android:text="Welcome"
                             android:textColor="@color/text_primary"
-                            android:textSize="18sp"
+                            android:textSize="17sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -64,32 +70,37 @@
                             android:layout_height="wrap_content"
                             android:textColor="@color/accent_cyan"
                             android:textSize="12sp"
-                            android:layout_marginTop="2dp" />
+                            android:layout_marginTop="2dp"
+                            android:letterSpacing="0.04" />
 
                     </LinearLayout>
 
-                    <com.google.android.material.card.MaterialCardView
-                        app:cardBackgroundColor="#1A8B5CF6"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="0dp"
+                    <!-- Level badge -->
+                    <LinearLayout
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content">
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_tag"
+                        android:paddingStart="12dp"
+                        android:paddingEnd="12dp"
+                        android:paddingTop="5dp"
+                        android:paddingBottom="5dp"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
                         <TextView
                             android:id="@+id/tvLevel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:paddingStart="10dp"
-                            android:paddingEnd="10dp"
-                            android:paddingTop="4dp"
-                            android:paddingBottom="4dp"
                             android:textColor="@color/accent_purple"
                             android:textSize="13sp"
                             android:textStyle="bold"
                             android:fontFamily="monospace" />
-                    </com.google.android.material.card.MaterialCardView>
+
+                    </LinearLayout>
 
                 </LinearLayout>
 
+                <!-- XP labels -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -116,11 +127,12 @@
 
                 </LinearLayout>
 
+                <!-- XP progress bar -->
                 <ProgressBar
                     android:id="@+id/progressXp"
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="5dp"
+                    android:layout_height="6dp"
                     android:max="1000"
                     android:progressTint="@color/accent_cyan"
                     android:progressBackgroundTint="@color/bg_elevated" />
@@ -129,124 +141,117 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Quick actions -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Quick Actions"
-            android:textColor="@color/text_secondary"
-            android:textSize="11sp"
-            android:textAllCaps="true"
-            android:letterSpacing="0.1"
-            android:layout_marginBottom="10dp" />
+        <!-- ── Events ─────────────────────────────────────────────────── -->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginBottom="20dp">
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGoEvents"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:layout_marginEnd="6dp"
-                android:text="Events"
-                android:textSize="12sp"
-                android:textColor="@color/accent_cyan"
-                app:strokeColor="@color/accent_cyan"
-                app:cornerRadius="10dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGoResources"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:layout_marginStart="3dp"
-                android:layout_marginEnd="3dp"
-                android:text="Resources"
-                android:textSize="12sp"
-                android:textColor="@color/matrix_green"
-                app:strokeColor="@color/matrix_green"
-                app:cornerRadius="10dp" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnGoAnnouncements"
-                style="?attr/materialButtonOutlinedStyle"
-                android:layout_width="0dp"
-                android:layout_height="48dp"
-                android:layout_weight="1"
-                android:layout_marginStart="6dp"
-                android:text="News"
-                android:textSize="12sp"
-                android:textColor="@color/accent_purple"
-                app:strokeColor="@color/accent_purple"
-                app:cornerRadius="10dp" />
-
-        </LinearLayout>
-
-        <!-- Upcoming events -->
+        <!-- Section header -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:layout_marginBottom="10dp">
 
+            <View
+                android:layout_width="4dp"
+                android:layout_height="20dp"
+                android:background="@color/accent_cyan"
+                android:layout_marginEnd="10dp" />
+
             <TextView
+                android:id="@+id/sectionEvents"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Upcoming Events"
+                android:text="Events"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvSeeAllEvents"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="See all"
-                android:textColor="@color/accent_cyan"
-                android:textSize="12sp" />
+                android:textStyle="bold"
+                android:letterSpacing="0.02" />
 
         </LinearLayout>
 
+        <!-- Events horizontal carousel -->
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvUpcomingEvents"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            android:layout_marginBottom="20dp" />
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="28dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-        <!-- Announcements -->
+        <!-- ── Resources ──────────────────────────────────────────────── -->
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
             android:layout_marginBottom="10dp">
 
+            <View
+                android:layout_width="4dp"
+                android:layout_height="20dp"
+                android:background="@color/matrix_green"
+                android:layout_marginEnd="10dp" />
+
             <TextView
+                android:id="@+id/sectionResources"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Resources"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.02" />
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvResources"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
+            android:layout_marginBottom="28dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <!-- ── Announcements ──────────────────────────────────────────── -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:layout_marginBottom="10dp">
+
+            <View
+                android:layout_width="4dp"
+                android:layout_height="20dp"
+                android:background="@color/accent_purple"
+                android:layout_marginEnd="10dp" />
+
+            <TextView
+                android:id="@+id/sectionAnnouncements"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Announcements"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvSeeAllAnn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="See all"
-                android:textColor="@color/accent_cyan"
-                android:textSize="12sp" />
+                android:textStyle="bold"
+                android:letterSpacing="0.02" />
 
         </LinearLayout>
 
@@ -254,8 +259,12 @@
             android:id="@+id/rvAnnouncements"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clipToPadding="false"
+            android:nestedScrollingEnabled="false"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
     </LinearLayout>
 
-</ScrollView>
+</androidx.core.widget.NestedScrollView>

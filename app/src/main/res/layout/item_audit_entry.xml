@@ -4,67 +4,74 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
-    android:padding="12dp"
-    android:gravity="center_vertical">
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    android:paddingEnd="12dp">
 
-    <!-- Action indicator dot -->
+    <!-- Severity bar (left) -->
     <View
         android:id="@+id/dotAction"
-        android:layout_width="8dp"
-        android:layout_height="8dp"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/dot_green" />
+        android:layout_width="3dp"
+        android:layout_height="match_parent"
+        android:layout_marginEnd="12dp" />
 
+    <!-- Content -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <!-- Top row: action badge + entity + time -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:gravity="center_vertical"
+            android:layout_marginBottom="3dp">
 
             <TextView
                 android:id="@+id/tvAuditAction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
-                android:textAllCaps="true"
+                android:textSize="10sp"
                 android:textStyle="bold"
+                android:textAllCaps="true"
                 android:letterSpacing="0.08"
-                android:layout_marginEnd="6dp" />
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginEnd="8dp" />
 
             <TextView
                 android:id="@+id/tvAuditEntity"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:textColor="@color/text_secondary"
                 android:textSize="12sp" />
 
+            <TextView
+                android:id="@+id/tvAuditTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_disabled"
+                android:textSize="10sp"
+                android:fontFamily="monospace" />
+
         </LinearLayout>
 
+        <!-- Detail -->
         <TextView
             android:id="@+id/tvAuditDetail"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/text_primary"
             android:textSize="13sp"
-            android:textStyle="bold"
-            android:layout_marginTop="2dp"
-            android:maxLines="1"
+            android:maxLines="2"
             android:ellipsize="end" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/tvAuditTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/text_disabled"
-        android:textSize="11sp"
-        android:fontFamily="monospace" />
 
 </LinearLayout>

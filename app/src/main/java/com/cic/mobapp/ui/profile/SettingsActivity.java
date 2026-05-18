@@ -29,11 +29,13 @@ public class SettingsActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         binding.toolbar.setNavigationOnClickListener(v -> finish());
 
-        // Populate account info from TokenManager
-        TokenManager tm = new TokenManager(this);
-        String userId = tm.getUserId();
-        binding.tvUsername.setText(userId != null ? userId : "—");
-        binding.tvRole.setText("—");
+        // Populate account info from intent extras (passed by ProfileFragment)
+        String username = getIntent().getStringExtra("username");
+        String email    = getIntent().getStringExtra("email");
+        String role     = getIntent().getStringExtra("role");
+        binding.tvUsername.setText(username != null ? username : "—");
+        binding.tvEmail.setText(email != null ? email : "—");
+        binding.tvRole.setText(role != null ? role : "—");
 
         // Load notification preferences
         SharedPreferences prefs = getSharedPreferences(PREF_SETTINGS, MODE_PRIVATE);

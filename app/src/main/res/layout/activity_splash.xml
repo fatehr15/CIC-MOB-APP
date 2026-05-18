@@ -6,23 +6,21 @@
     android:layout_height="match_parent"
     android:background="@color/bg_primary">
 
-    <!-- CIC logo / wordmark centered -->
-    <TextView
+    <!-- CIC shield logo -->
+    <ImageView
         android:id="@+id/tvLogo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="CIC"
-        android:textColor="@color/accent_cyan"
-        android:textSize="72sp"
-        android:textStyle="bold"
-        android:fontFamily="monospace"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:src="@drawable/ic_cic_logo"
+        android:scaleType="fitCenter"
         android:alpha="0"
+        android:contentDescription="CIC Logo"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/tvTagline"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
-        android:layout_marginBottom="8dp" />
+        android:layout_marginBottom="16dp" />
 
     <TextView
         android:id="@+id/tvTagline"
@@ -50,8 +48,7 @@
         android:background="@color/bg_surface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="0dp">
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/tvLine1"
